@@ -133,7 +133,7 @@ module Danger
         warn("Resource " + bold("#{key}") + ": \n#{allChanges.join("\n ")}") unless allChanges.empty?
       }
 
-      hintMessage = "New localization strings was added. Don't forget to run the following commads to upload translations to Smartling:\n";
+      hintMessage = "New localization strings were added. Don't forget to run the following commads to upload translations to Smartling:\n";
       commandHints = []
       allNewAddedTranslations = addedResourceFiles + addedLocalizations.map { |hash| hash[:fileName] }
       allNewAddedTranslations.uniq.each { |file|
