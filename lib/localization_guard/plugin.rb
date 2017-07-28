@@ -99,7 +99,8 @@ module Danger
       modifiedLocalizationFiles = markdowns.select{ |file| isTranslationsFile(file)}
 
       modifiedLocalizationFiles.each do |modifiedFile|
-        git.diff_for_file(modifiedFile).patch.each_line do |line|
+        diffForFile = git.diff_for_file(modifiedFile)
+        diffForFile.patch.each_line do |line|
           key, value = nil
           if line.start_with? '-"'
             key, value = obtainResourceValues(line)
@@ -122,7 +123,7 @@ module Danger
             end
           end
           allModifiedKeys << key if key != nil
-        end
+        end if diffForFile
       end
 
       allModifiedKeys.uniq.each { |key|
