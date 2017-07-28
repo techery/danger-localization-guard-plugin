@@ -99,7 +99,11 @@ module Danger
       modifiedLocalizationFiles = markdowns.select{ |file| isTranslationsFile(file)}
 
       modifiedLocalizationFiles.each do |modifiedFile|
-        diffForFile = git.diff_for_file(modifiedFile)
+        diffForFile = nil
+        begin
+          diffForFile = git.diff_for_file(modifiedFile)
+        rescue => ex
+        end
         diffForFile.patch.each_line do |line|
           key, value = nil
           if line.start_with? '-"'
