@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['max.s@techery.io']
   spec.description   = %q{A short description of danger-localization_guard.}
   spec.summary       = %q{A longer description of danger-localization_guard.}
-  spec.homepage      = 'https://github.com/Max Sysenko/danger-localization_guard'
+  spec.homepage      = 'https://github.com/techery/danger-localization-guard-plugin'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
